@@ -1,0 +1,245 @@
+
+NoSQL vs SQL: Principales diferencias
+
+
+
+SQL, bases de datos relacionales
+
+Las bases de datos relacionales (SQL) son el tipo que más tiempo lleva en el mercado de la tecnología y son por tanto las utilizadas en mayor medida
+ tradicionalmente. Su composición está hecha con bases de datos llenas de tablas con filas que contienen campos estructurados. No se trata precisamente
+ de un tipo de base de datos muy flexible, pero tiene a favor su gran soporte y el enorme desarrollo en herramientas debido a todo su bagaje histórico.
+ De hecho, es una tecnología muy reconocida en comparación con las bases NoSQL que al ser más novedosas no tienen tanto alcance todavía. En cambio,
+ las bases de datos SQL necesitan más recursos como norma general, ya que cuanto más compleja sea la base más procesamiento necesitará.
+
+El mayor inconveniente de las SQL es probablemente el referido a la escalabilidad, que es precisamente el que permitió el desarrollo de alternativas
+ que desembocaron en las redes NoSQL, ya que grandes empresas que manejan datos a gran escala con necesidad de mucha infraestructura sufrían con este 
+problema. A partir de ahí se desarrollaron las primeras NoSQL cerradas creadas por empresas para su uso interno, y finalmente los sistemas de código 
+abierto. Algunas de sus tecnologías más conocidas son Hypertable, Cassandra, MongoDB, DynamoDB o Redis, mientras que Oracle, Microsoft SQL Server, 
+
+
+
+NOSQL, base de datos no relacional
+
+La gran diferencia entre los dos tipos de bases de datos es la estructuración, que en el caso de las NOSQL se trata de una forma de almacenamiento
+ no estructurado, todo lo contrario a sus predecesoras. En este caso, son de bases de datos sin una tabla fija como las que sí se encuentran en las
+ bases de datos relacionales, lo que permite una alta escalabilidad en ellas. Además, es abierta y por lo tanto flexible a diferentes tipos de datos
+ y no necesita tantos recursos para ejecutarse; de hecho, el hardware necesario no es de un coste muy elevado. En este sentido, también se deja notar 
+el menor coste a la hora de la expansión, ya que no necesitan la evolución en hardware del equipo, sino que basta con hacer un escalado horizontal,
+ con más máquinas en las que distribuir la carga completa.
+
+Por contra, un par de desventajas de las bases NoSQL, que no son perfectas, son que los desarrolles, al implementar su propio código en pos de la 
+fiabilidad y coherencia, es decir, al no existir tanta estandarización, se limita el número de aplicaciones seguras para realizar transacciones, y
+ por otro lado, tampoco es una virtud el hecho de que sea incompatible con ellas llevar a cabo consultas SQL, lo que hace necesario un lenguaje de
+ consulta manual que ralentiza los procesos de este tipo concreto.
+
+En definitiva, lo más importante que debes saber es que las NoSQL no son un sustituto de las SQL, sino que son una alternativa que ofrece otras
+posibilidades, lo que las convierte en más interesantes para determinados casos como por ejemplo proyectos que requieren una alta escalabilidad en 
+el los recursos son escasos y la integridad de los datos no es lo más importante, como sí ocurre en cambio en aplicaciones especializadas por ejemplo 
+en transacciones bancarias.
+
+
+Yo entendi:
+
+La principal diferencia entre ambos tipos de bases de datos radica en que las bases de datos NoSQL no utilizan el modelo relacional.NOSQL
+se trata de una forma de almacenamiento no estructurado
+
+
+.............................................................................................................................................................
+
+Cuales grandes empresas usan NOSQL y porque
+
+
+Tesco, uno de los más grandes supermercados del mundo, utiliza base de datos NoSQL para soportar su catálogo de productos, precios, inventarios y 
+sistemas de cupones.
+
+McGraw-Hill, una reconocida firma editorial de presencia mundial, líder en la enseñanza digital, utiliza base de datos NoSQL para impulsar el 
+aprendizaje en linea de su plataforma e-learning.
+
+Sky TV, una importante cadena de televisión satelital, utiliza base de datos NoSQL para administrar los perfiles de usuario de sus más de 20 
+millones de suscriptores.
+
+Neiman Marcus, una lujosa tienda por departamento de presencia global , utiliza base de datos NoSQL para almacenar los intereses personalizados 
+de sus clientes a través de todos sus canales de venta.
+
+Sabre, uno de los más grandes sistemas de servicio de datos de vuelos del mundo (desarrollada por American Airlines), utiliza base de datos NoSQL
+ para almacenar información de vuelos, pasajeros, rutas, entre otras muchas cosas.
+
+KDDI Corporation, la segunda más grande compañía de telecomunicaciones de Japón, utiliza base de datos NoSQL para administrar las plataformas de
+ sus servicios cloud.
+
+El Ministerio de Salud de Turquía utiliza base de datos NoSQL para almacenar el historial clínico de sus más de 77 millones de ciudadanos.
+
+Ryanair, la más grande aerolínea irlandesa de bajo coste, utiliza base de datos NoSQL en sus aplicaciones móviles para ofrecer una excelente
+ experiencia de venta de pasajes a sus millones de usuarios.
+
+Paypal, sistema de pagos en linea que opera en casi todo el mundo, utiliza base de datos NoSQL para monitorear en tiempo real el tráfico de 
+visitas a su aplicación web.
+
+
+Hoy en día, las empresas de casi todas las industrias están implementando soluciones basadas en base de datos NoSQL. Están recurriendo a NoSQL 
+para superar las limitaciones de las tradicionales tecnologías de base de datos relacionales. Y están eligiendo soluciones NoSQL open source sobre
+productos relacionales licenciados como Oracle, IBM y Microsoft por razones económicas.
+
+
+.............................................................................................................................................................
+
+
+SAAS
+
+Software como un Servicio, abreviadamente ScuS (del inglés: Software as a Service, SaaS), es un modelo de distribución de software donde el soporte 
+lógico y los datos que maneja se alojan en servidores de una compañía de tecnologías de información y comunicación (TIC), a los que se accede vía Internet
+desde un cliente. La empresa proveedora TIC se ocupa del servicio de mantenimiento, de la operación diaria y del soporte del software usado por el
+cliente. Regularmente el software puede ser consultado en cualquier computador, se encuentre presente en la empresa o no. Se deduce que la información, 
+el procesamiento, los insumos, y los resultados de la lógica de negocio del software, están hospedados en la compañía de TIC.
+
+Ejemplo
+
+El software es un producto que se puede distribuir de varias maneras. De forma clásica se hace mediante una instalación directa en equipos del cliente. 
+Normalmente, si alguien quiere usar una aplicación de ventas, compra el CD-producto de instalación, ejecuta un programa de configuración, da sus claves y,de este modo, puede comenzar a utilizar el sistema. Pero si el usuario necesita que otra persona al extremo del globo terráqueo consulte su lista de 
+clientes, cobros pendientes o precios, y los quisiera manipular con el mismo software, necesitaría otro CD-producto, o necesitaría bajar ese programa
+ejecutable de la web, y generalmente necesitaría otra licencia para ese producto, o hacer uso de una VPN, o comunicarse mediante correo electrónico 
+con la sede de operaciones. En cambio, si el software está modelado como servicio, los requerimientos pueden ser mucho más simples.
+
+..............................................................................................................................................................
+
+PAAS
+
+
+Platform as a Service (PaaS) o Application Platform as a Service (aPaaS) o servicio basado en plataforma es una categoría de servicios de computación en
+la nube que proporciona una plataforma que permite a los clientes desarrollar, ejecutar y administrar aplicaciones sin la complejidad de crear y mantener
+el infraestructura típicamente asociada con el desarrollo y lanzamiento de una aplicación.
+
+Desarrollo y usos
+
+PaaS puede ser entregado de tres maneras:
+
+como un servicio de nube pública de un proveedor, donde el consumidor controla la implementación del software con opciones de configuración mínimas, y 
+el proveedor proporciona redes, servidores, almacenamiento, sistema operativo (OS), middleware (por ejemplo, tiempo de ejecución de Java, tiempo de
+ ejecución de .NET, integración, etc.) .), base de datos y otros servicios para alojar la aplicación del consumidor.
+como un servicio privado (software o dispositivo) detrás de un firewall.como software desplegado en una infraestructura pública como servicio. 
+
+.............................................................................................................................................................
+ 
+
+IASS
+
+Infraestructura como servicio (IaaS) se refiere a los servicios on-line que proporcionan un alto-nivel de APIs utilizadas para  indirecciónar 
+detalles a bajo nivel de infraestructura como recursos de informática física, ubicación, dato partitioning, scaling, seguridad, copia de seguridad
+etc.Un hypervisor, como Xen, Oracle VirtualBox, Oracle VM, KVM, VMware ESX/ESXi, o Hyper-V, LXD, corre las máquinas virtuales como huéspedes.
+Pools de hypervisors dentro del sistema operacional de la nube pueden apoyar gran cantidad de máquinas virtuales y la capacidad de adaptarse
+a los servicios según los requisitos de los clientes. Contenedores de Linux funcionan en particiones aisladas de un Linux kernel, que a la vez
+se ejecuta directamente en el hardware. Linux cgroups y namespaces son las tecnologías subyacentes de Linux  para aislar, asegurar y dirigir los 
+distintos contenedores. Containerisation ofrece un rendimiento más alto que la virtualizacion, porque hay no hypervisor por encima. También, la
+capacidad del contenedor aumenta dinámicamente cuando el contenedor se va llenando, lo que elimina el problema de tener sobre-provisiones y
+entonces adapta su gasto según lo que necesite.  Las nubes IaaS a menudo ofrecen recursos adicionales como una imagen de disco de una máquina 
+virtual, almacenamiento de bloque crudo, archivo o almacenamiento de objetos, cortafuegos, carga de balances, direcciones de IP, redes de área 
+locales virtuales (VLANs), y cantidades de software.
+
+
+Los provedores de IaaS suministran estos recursos según las necesidades del cliente desde sus centros de datos. Para ofrecer una mejor conectividad de
+ área ancha, los clientes pueden utilizar el Internet o nubes cargadoras (redes privadas virtuales). Para sus aplicaciones, los usuarios instalan imágenes 
+de sistemas operativos y su software en la infraestructura de la nube.[fuente cuestionable]En este modelo, los usuarios de la nube mantienen los sistemas
+ operativos y el software de aplicación. Los proveedores típicamente enuncian y cobran los servicios IaaS según la utilidad que se esté haciendo del
+ servicio: el coste refleja la cantidad de los recursos requeridos y consumidos.
+
+.........................................................................................................................................................
+ 
+GitKraken.
+
+Es una potente y elegante interfaz gráfica multiplataforma para git desarrollada con Electron. De forma muy sencilla podemos llevar el completo seguimiento
+de nuestros repositorios,ver ramas, tags, crear nuevos, todo el historial de nuestro trabajo, commits etcétera.
+
+
+.........................................................................................................................................................
+
+git clone
+
+Se usa principalmente para señalar un repositorio existente y hacer un clon o una copia de ese repositorio en un nuevo directorio, en otra ubicación. 
+El repositorio original se puede ubicar en el sistema de archivos local o en los protocolos compatibles accesibles a través de máquinas remotas. El comando 
+git clone copia un repositorio Git existente.
+
+Git Branch
+
+Listar todas las ramas en su repositorio. Esto es sinónimo de git branch list.
+
+
+Git-checkout 
+
+Cambiar ramas o restaurar archivos de árbol de trabajo Actualiza los archivos en el árbol de trabajo para que coincidan con la versión en el índice o
+el árbol especificado. Si no se proporcionan rutas, git checkout también se actualizará HEAD para establecer la rama especificada como la rama actual.
+
+
+Git commit
+
+Esto abrirá un editor de texto que le pedirá un mensaje de confirmación. Una vez que haya ingresado un mensaje, guarde el archivo y cierre el editor para crear 
+el compromiso real.
+
+
+
+git-status
+
+Muestra el estado del árbol de trabajo. Muestra las rutas que tienen diferencias entre el archivo de índice y la confirmación HEAD actual, las rutas que 
+tienen diferencias entre el árbol de trabajo y el archivo de índice, y las rutas en el árbol de trabajo que Git no rastrea (y que no se ignoran en
+gitignore). Los primeros son lo que podría comprometer mediante la ejecución git commit; el segundo y el tercero son lo que podría cometer ejecutando 
+git add antes de ejecutarse git commit.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.........................................................................................................................................................
+
+
+IBVESTICAR COMANDOS GIT CLONE GIT BRACH  GIT CHECKOUT GIT COMMIT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
