@@ -1,0 +1,101 @@
+Tipos de patrones en SQL 
+
+<graph_search_pattern>
+Especifica el patrón de coincidencia del grafo. Para obtener más información sobre los argumentos de esta cláusula, vea MATCH (Transact-SQL)
+NOT
+Niega la expresión booleana que especifica el predicado. Para obtener más información, vea NOT (Transact-SQL).
+y
+Combina dos condiciones y se evalúa como TRUE cuando ambas condiciones son TRUE. Para obtener más información, vea AND (Transact-SQL).
+O BIEN
+Combina dos condiciones y se evalúa como TRUE cuando alguna de las condiciones es TRUE. Para obtener más información, vea OR (Transact-SQL).
+< predicate >
+Es una expresión que devuelve TRUE, FALSE o UNKNOWN.
+expression
+Es un nombre de columna, una constante, una función, una variable, una subconsulta escalar o cualquier combinación de nombres de columna, constantes y funciones conectados mediante uno 
+o varios operadores o una subconsulta. La expresión también puede contener la expresión CASE.
+ Nota
+
+Las constantes y las variables de cadena no Unicode usan la página de códigos que corresponde a la intercalación predeterminada de la base de datos. Pueden producirse conversiones de
+página de códigos cuando se trabaja únicamente con datos de caracteres no Unicode y se hace referencia a los tipos de datos de caracteres no Unicode char, varchar y text. SQL Server 
+convierte las variables y constantes de cadena no Unicode a la página de códigos que corresponde a la intercalación de la columna a la que se hace referencia o que se ha especificado 
+mediante COLLATE, si esa página de códigos es diferente a la que corresponde a la intercalación predeterminada de la base de datos. Los caracteres que no se encuentran en la nueva página
+de códigos se traducen en un carácter similar, si se encuentra una coincidencia, o bien se convierten en el carácter de sustitución predeterminado "?".
+Cuando se trabaja con varias páginas de códigos, las constantes de caracteres pueden llevar un prefijo con la letra mayúscula 'N' y se pueden usar variables Unicode para evitar las 
+conversiones de páginas de códigos.
+=
+Es el operador que se utiliza para probar la igualdad entre dos expresiones.
+<>
+Es el operador que se utiliza para probar si dos expresiones no son iguales entre sí.
+!=
+Es el operador que se utiliza para probar si dos expresiones no son iguales entre sí.
+>
+Es el operador que se utiliza para probar si una expresión es mayor que la otra.
+>=
+Es el operador que se utiliza para probar si una expresión es mayor o igual que la otra expresión.
+!>
+Es el operador que se utiliza para probar si una expresión no es mayor que la otra expresión.
+<
+Es el operador que se utiliza para probar si una expresión es menor que la otra.
+<=
+Es el operador que se utiliza para probar si una expresión es menor o igual que la otra expresión.
+!<
+Es el operador que se utiliza para probar si una expresión no es menor que la otra expresión.
+
+string_expression
+Es una cadena de caracteres y caracteres comodín.
+
+[ NOT ] LIKE
+Indica que la siguiente cadena de caracteres se utilizará con la coincidencia de patrón. Para obtener más información, vea LIKE (Transact-SQL).
+
+ESCAPE 'escape_ character'
+Permite buscar un carácter comodín en una cadena de caracteres sin que funcione como carácter comodín. escape_character es el carácter que se coloca delante del carácter comodín 
+para indicar este uso especial.
+
+[ NOT ] BETWEEN
+Especifica un intervalo inclusivo de valores. Utilice AND para separar los valores inicial y final. Para obtener más información, vea BETWEEN (Transact-SQL).
+
+IS [ NOT ] NULL
+Especifica una búsqueda de valores NULL o de valores que no son NULL, en función de las palabras clave utilizadas. Una expresión que contenga un operador bit a bit o aritmético 
+se evalúa como NULL si uno de los operandos es NULL.
+
+CONTAINS
+Busca en columnas que contienen datos basados en caracteres coincidencias precisas o menos precisas (parciales) con palabras o frases, a una cierta distancia las unas de las 
+otras y coincidencias ponderadas. Esta opción solo puede usarse con instrucciones SELECT. Para obtener más información, vea CONTAINS (Transact-SQL).
+
+FREETEXT
+Proporciona una forma sencilla de realizar consultas en lenguaje natural al buscar, en columnas con datos basados en caracteres, valores que coincidan con el significado en
+lugar de con las palabras exactas del predicado. Esta opción solo puede usarse con instrucciones SELECT. Para obtener más información, vea FREETEXT (Transact-SQL).
+
+[ NOT ] IN
+Especifica la búsqueda de una expresión, basada en si la expresión está incluida en una lista o excluida de ella. La expresión de búsqueda puede ser una constante o un nombre
+de columna, y la lista puede ser un conjunto de constantes o, más normalmente, una subconsulta. Encierre la lista de valores entre paréntesis. Para más información, vea IN 
+
+(Transact-SQL).
+subquery
+Se puede considerar como una instrucción SELECT restringida y es similar a <expresión_de_consulta> en la instrucción SELECT. No se permiten la cláusula ORDER BY ni la palabra 
+clave INTO. Para obtener más información, vea SELECT (Transact-SQL).
+
+ALL
+Se utiliza con un operador de comparación y una subconsulta. Devuelve TRUE para <predicate> si todos los valores obtenidos de la subconsulta satisfacen la operación de comparación, 
+o FALSE si no todos los valores satisfacen la comparación o si la subconsulta no devuelve filas a la instrucción externa. Para obtener más información, vea ALL (Transact-SQL).
+
+
+{ SOME | ANY }
+Se utiliza con un operador de comparación y una subconsulta. Devuelve TRUE para <predicate> si algún valor obtenido de la subconsulta satisface el operador de comparación, o FALSE 
+si ningún valor de la subconsulta satisface la comparación o si la subconsulta no devuelve filas a la instrucción externa. En caso contrario, la expresión es UNKNOWN. Para obtener
+más información, vea SOME | ANY (Transact-SQL).
+
+EXISTS
+Se utiliza con una subconsulta para probar la existencia de filas devueltas por la subconsulta. Para obtener más información, vea EXISTS (Transact-SQL).
+
+
+
+
+Yo entendi esto : Los patrones en sql son comandos que se utilizan para crear editqr modificar y haver consultas en una base de datos de sql es como un lenguaje que te permite trabajar 
+con todas las  tablas y registros en sql atraves de intrucciones que se ejecutan en la misma base de datos,
+
+
+******************************************************************************************************************************************************************************************
+
+
+

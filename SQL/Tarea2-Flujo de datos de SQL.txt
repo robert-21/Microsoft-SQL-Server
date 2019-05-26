@@ -1,0 +1,35 @@
+Flujo de datos de SQL
+
+Agregar una tarea Flujo de datos al flujo de control de un paquete es el primer paso en la implementación de un flujo de datos en un paquete. Un paquete puede incluir varias tareas 
+Flujo de datos, cada una de las cuales tiene su propio flujo de datos. Por ejemplo, si un paquete requiere que los flujos de datos se ejecuten en un orden especificado, o que se realicen 
+otras tareas entre los flujos de datos, debe utilizar una tarea Flujo de datos independiente para cada flujo de datos.
+Una vez el flujo de control incluye una tarea Flujo de datos, puede empezar a generar el flujo de datos que usa un paquete. Para más información, vea Tarea Flujo de datos.
+Crear un flujo de datos incluye las siguientes tareas:
+
+Agregar uno o más orígenes para extraer datos de archivos y bases de datos, y agregar administradores de conexión para conectarse a los orígenes.
+Agregar las transformaciones que satisfacen los requisitos empresariales del paquete. No es obligatorio que un flujo de datos incluya transformaciones.
+Algunas transformaciones requieren un administrador de conexiones. Por ejemplo, la transformación Búsqueda usa un administrador de conexión para conectarse a la base de datos que contiene 
+los datos de búsqueda.
+
+Conectar componentes de flujo de datos conectando la salida de orígenes y transformaciones con la entrada de transformaciones y destinos.
+Agregar uno o varios destinos para cargar datos en almacenes de datos tales como archivos y bases de datos, y agregar administradores de conexiones para conectarse a los orígenes de 
+datos.
+
+Configurar salidas de error en componentes para controlar problemas.
+En el tiempo de ejecución, pueden generarse errores de nivel de fila cuando los componentes de flujo de datos convierten datos, realizan una búsqueda o evalúan expresiones.
+Por ejemplo, una columna de datos con un valor de cadena no puede convertirse en un número entero, o una expresión intenta dividirse por cero. Ambas operaciones generan errores, 
+y las filas que contienen los errores se pueden procesar independientemente mediante un flujo de errores. Para más información sobre cómo usar los flujos de errores en el flujo de datos
+de paquetes, vea Control de errores en los datos.
+
+
+
+Yo entendi esto :
+
+Hay 3 tipos de flujo de datos: orígenes, transformaciones y destinos ,origenes se enscarga de extraer datos de las tablas ,transformaciones modifican los datos ,destinos se encarga de 
+cargar los datos todos estos plujo funcionana para manipular los datos dentro de sql su imprementacion va desde agregar unatarea un flujo de datos agregar uno o mas origenes conectar
+componentes,,configuar salidas para controlar problemas .
+
+
+
+
+*******************************************************************************************************************************************************************************************

@@ -1,0 +1,294 @@
+Tipos de datos en SQL
+
+
+A continuación se muestran  los tipos de datos que se pueden definir para este motor de base de datos Microsoft SQL Server.
+
+Grupo
+
+Tipo de dato
+
+Intervalo
+
+Almacenamiento
+
+Numéricos exactos
+
+bigint
+
+De -263 (-9.223.372.036.854.775.808) a 263 - 1 (9.223.372.036.854.775.807)
+
+8 bytes
+
+int
+
+De -231 (-2.147.483.648) a 231 - 1 (2.147.483.647)
+
+4 bytes
+
+smallint
+
+De -215 (-32.768) a 215 - 1 (32.767)
+
+2 bytes
+
+tinyint
+
+De 0 a 255
+
+1 byte
+
+bit
+
+Tipo de datos entero que puede aceptar los valores 1, 0 ó NULL
+
+2 bytes
+
+decimal, numeric, decimal (p, s)
+
+p (precisión): el número total máximo de dígitos decimales que se puede almacenar, tanto a la izquierda como a la derecha del separador decimal. La precisión debe ser un valor
+ comprendido entre 1 y la precisión máxima de 38. La precisión predeterminada es 18.
+s (escala): el número máximo de dígitos decimales que se puede almacenar a la derecha del separador decimal. La escala debe ser un valor comprendido entre 0 y p. Sólo es posible
+ especificar la escala si se ha especificado la precisión. La escala predeterminada es 0.
+Con precisión máxima 1038 +1 y 1038 - 1
+
+Precisión 1 - 9: 5 bytes
+
+money
+
+Tipos de datos que representan valores monetarios o de moneda: de -922.337.203.685,4775808 a 922.337.203.685,4775807
+
+8 bytes
+
+smallmoney
+
+De - 214,7483648 a 214,7483647
+
+4 bytes
+
+Numéricos aproximados
+
+float
+
+De - 1,79E+308 a -2,23E-308, 0 y de 2,23E-308 a 1,79E+308
+
+Depende del valor de n
+
+real
+
+De - 3,40E + 38 a -1,18E - 38, 0 y de 1,18E - 38 a 3,40E + 38
+
+4 Bytes
+
+Fecha y hora
+
+datetime
+
+Del 1 de enero de 1753 hasta el 31 de diciembre de 9999
+
+ 
+
+smalldatetime
+
+Del 1 de enero de 1900 hasta el 6 de junio de 2079
+
+ 
+
+Cadenas de caracteres
+
+char (n)
+
+Caracteres no Unicode de longitud fija, con una longitud de n bytes. n debe ser un valor entre 1 y 8.000
+
+n bytes
+
+varchar (n)
+
+Caracteres no Unicode de longitud variable. n indica que el tamaño de almacenamiento máximo es de 231 - 1 bytes
+
+n bytes (aprox.)
+
+text
+
+En desuso, sustituido por varchar.
+
+Datos no Unicode de longitud variable con una longitud máxima de 231 - 1 (2.147.483.647) caracteres
+
+max bytes (aprox.)
+
+Cadenas de caracteres unicode
+
+nchar (n)
+
+Datos de carácter Unicode de longitud fija, con n caracteres. n debe estar comprendido entre 1 y 4.000
+
+2 * n bytes
+
+nvarchar (n)
+
+Datos de carácter Unicode de longitud variable. n indica que el tamaño máximo de almacenamiento es 231 - 1 bytes
+
+2 * n bytes + 2 bytes
+
+ntext (n)
+
+En desuso, sustituido por nvarchar.
+
+Datos Unicode de longitud variable con una longitud máxima de 230 - 1 (1.073.741.823) caracteres
+
+2 * n bytes
+
+Cadenas binarias
+
+binary (n)
+
+Datos binarios de longitud fija con una longitud de n bytes, donde n es un valor que oscila entre 1 y 8.000
+
+n bytes
+
+varbinary (n)
+
+Datos binarios de longitud variable. n indica que el tamaño de almacenamiento máximo es de 231 - 1 bytes
+
+n bytes
+
+image
+
+En desuso, sustituido por varbinary.
+
+Datos binarios de longitud variable desde 0 hasta 231 - 1 (2.147.483.647) bytes
+
+ 
+
+Otros tipos de datos
+
+cursor
+
+Tipo de datos para las variables o para los parámetros de resultado de los procedimientos almacenados que contiene una referencia a un cursor. Las variables creadas con el tipo
+ de datos cursor aceptan NULL
+
+ 
+
+timestamp
+
+Tipo de datos que expone números binarios únicos generados automáticamente en una base de datos. El tipo de datos timestamp es simplemente un número que se incrementa y no conserva 
+una fecha o una hora
+
+8 bytes
+
+sql_variant
+
+Tipo de datos que almacena valores de varios tipos de datos aceptados en SQL Server, excepto text, ntext, image, timestamp y sql_variant
+
+ 
+
+uniqueidentifier
+
+Es un GUID (Globally Unique Identifier, Identificador Único Global)
+
+16 bytes
+
+table
+
+Es un tipo de datos especial que se puede utilizar para almacenar un conjunto de resultados para su procesamiento posterior. table se utiliza principalmente para el almacenamiento 
+temporal de un conjunto de filas devuelto como el conjunto de resultados de una función con valores de tabla
+
+ 
+
+xml
+
+Almacena datos de XML. Puede almacenar instancias de xml en una columna o una variable de tipo xml
+
+ 
+********************************************************************************************************************************************************************************************
+
+
+Tipo de relaciones SQL
+
+Al crear una base de datos, el sentido común dicta que usamos tablas separadas para diferentes tipos de entidades. Algunos ejemplos son: clientes, pedidos, artículos, mensajes, etc ... 
+Pero también necesitamos tener relaciones entre estas tablas. Por ejemplo, los clientes realizan pedidos y los pedidos contienen elementos. Estas relaciones deben ser representadas en 
+la base de datos. Además, al buscar datos con SQL, necesitamos usar ciertos tipos de consultas JOIN para obtener lo que necesitamos.
+
+Hay varios tipos de relaciones de base de datos. Hoy vamos a cubrir lo siguiente:
+
+Relaciones de uno a uno
+Relaciones de uno a muchos y muchas a una
+Relaciones muchas a muchas
+Relaciones Auto-Referentes
+
+Relaciones de uno a uno
+Digamos que usted tiene una tabla para los clientes:
+
+
+Podemos poner la información de la dirección del cliente en una tabla aparte:
+
+
+Ahora tenemos una relación entre la tabla Customers y la tabla Addresses. Si cada dirección puede pertenecer a un solo cliente, esta relación es "Uno a uno". Tenga en cuenta que este tipo de relación no es muy común. Nuestra mesa inicial que incluía la dirección junto con el cliente podría haber trabajado bien en la mayoría de los casos.
+
+Observe que ahora hay un campo denominado "address_id" en la tabla Customers, que hace referencia al registro coincidente en la tabla Address. Esto se llama una "clave foranea" y se utiliza para todo tipo de relaciones de base de datos. Abordaremos este tema más adelante en el artículo.
+
+Podemos visualizar la relación entre el cliente y los registros de direcciones de la siguiente manera:
+
+
+Tenga en cuenta que la existencia de una relación puede ser opcional, como tener un registro de cliente que no tiene registro de dirección relacionada.
+
+Relaciones de uno a muchas y muchas a una
+Este es el tipo de relación más comúnmente utilizado. Considere un sitio web de comercio electrónico, con lo siguiente:
+
+Los clientes pueden hacer muchos pedidos.
+Las órdenes pueden contener muchos artículos.
+Los artículos pueden tener descripciones en varios idiomas.
+En estos casos, tendríamos que crear relaciones de "uno a muchos". Aquí hay un ejemplo:
+
+
+Cada cliente puede tener cero, una o varias órdenes. Pero un pedido puede pertenecer a un solo cliente.
+
+
+Muchas a muchas relaciones
+En algunos casos, es posible que necesite múltiples instancias en ambos lados de la relación. Por ejemplo, cada pedido puede contener varios elementos. Y cada artículo puede 
+también estar en órdenes múltiples.
+
+Para estas relaciones, necesitamos crear una tabla adicional:
+
+
+La tabla Items_Orders tiene un solo propósito, y es crear una relación "Muchos a muchos" entre los elementos y los pedidos.
+
+Aquí está una manera de visualizar este tipo de relación:
+
+
+Si desea incluir los registros items_orders en el gráfico, puede verse así:
+
+
+Relaciones Auto-Referentes
+Esto se utiliza cuando una tabla necesita tener una relación consigo misma. Por ejemplo, supongamos que tiene un programa de referencia. Los clientes pueden referir a otros 
+clientes a su sitio web de compras. La tabla puede tener este aspecto:
+
+
+Los clientes 102 y 103 fueron referidos por el cliente 101.
+
+Esto en realidad también puede ser similar a "uno a muchos" relación ya que un cliente puede referirse a múltiples clientes. También se puede visualizar como una estructura de árbol:
+
+
+Un cliente puede referirse a cero, uno o varios clientes. Cada cliente puede ser referido por un solo cliente, o ninguno en absoluto.
+
+Si desea crear una relación de "muchos a muchos" de auto referenciamiento, necesitará una tabla adicional como la que acabamos de mencionar en la última sección.
+
+Claves foraneas
+Hasta ahora sólo hemos aprendido algunos de los conceptos. Ahora es el momento de darles vida usando SQL. Para esta parte, necesitamos entender lo que son las Claves foraneas.
+
+En los ejemplos de relación anteriores, siempre teníamos estos campos "**** _ id" que hacían referencia a una columna en otra tabla. En este ejemplo, la columna customer_id de
+la tabla Orders es una columna Foreign Key:
+
+
+Yo entendi esto :
+
+
+El modo de relacionar registros entre tablas es por referencias, para lo cual se usan los identificadores definidos como claves primarias y foráneas.Las claves foráneas de una 
+tabla permiten establecer relaciones con otras tablas, puesto que contienen valores que encontramos como clave primaria en la tabla con la que se relaciona. Una clave foránea 
+será simple o compuesta dependiendo de si lo es la clave primaria de la tabla a la que apunta o hace referencia. exieten 3 tipos de relaciones unoa a uno , uno amuchos , muchos a amuchos 
+
+
+
+
+*****************************************************************************************************************************************************************************************
+
+

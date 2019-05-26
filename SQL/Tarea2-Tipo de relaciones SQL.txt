@@ -1,0 +1,89 @@
+Tipo de relaciones SQL
+
+Al crear una base de datos, el sentido común dicta que usamos tablas separadas para diferentes tipos de entidades. Algunos ejemplos son: clientes, pedidos, artículos, mensajes, etc ... 
+Pero también necesitamos tener relaciones entre estas tablas. Por ejemplo, los clientes realizan pedidos y los pedidos contienen elementos. Estas relaciones deben ser representadas en 
+la base de datos. Además, al buscar datos con SQL, necesitamos usar ciertos tipos de consultas JOIN para obtener lo que necesitamos.
+
+Hay varios tipos de relaciones de base de datos. Hoy vamos a cubrir lo siguiente:
+
+Relaciones de uno a uno
+Relaciones de uno a muchos y muchas a una
+Relaciones muchas a muchas
+Relaciones Auto-Referentes
+
+Relaciones de uno a uno
+Digamos que usted tiene una tabla para los clientes:
+
+
+Podemos poner la información de la dirección del cliente en una tabla aparte:
+
+
+Ahora tenemos una relación entre la tabla Customers y la tabla Addresses. Si cada dirección puede pertenecer a un solo cliente, esta relación es "Uno a uno". Tenga en cuenta que este tipo de relación no es muy común. Nuestra mesa inicial que incluía la dirección junto con el cliente podría haber trabajado bien en la mayoría de los casos.
+
+Observe que ahora hay un campo denominado "address_id" en la tabla Customers, que hace referencia al registro coincidente en la tabla Address. Esto se llama una "clave foranea" y se utiliza para todo tipo de relaciones de base de datos. Abordaremos este tema más adelante en el artículo.
+
+Podemos visualizar la relación entre el cliente y los registros de direcciones de la siguiente manera:
+
+
+Tenga en cuenta que la existencia de una relación puede ser opcional, como tener un registro de cliente que no tiene registro de dirección relacionada.
+
+Relaciones de uno a muchas y muchas a una
+Este es el tipo de relación más comúnmente utilizado. Considere un sitio web de comercio electrónico, con lo siguiente:
+
+Los clientes pueden hacer muchos pedidos.
+Las órdenes pueden contener muchos artículos.
+Los artículos pueden tener descripciones en varios idiomas.
+En estos casos, tendríamos que crear relaciones de "uno a muchos". Aquí hay un ejemplo:
+
+
+Cada cliente puede tener cero, una o varias órdenes. Pero un pedido puede pertenecer a un solo cliente.
+
+
+Muchas a muchas relaciones
+En algunos casos, es posible que necesite múltiples instancias en ambos lados de la relación. Por ejemplo, cada pedido puede contener varios elementos. Y cada artículo puede 
+también estar en órdenes múltiples.
+
+Para estas relaciones, necesitamos crear una tabla adicional:
+
+
+La tabla Items_Orders tiene un solo propósito, y es crear una relación "Muchos a muchos" entre los elementos y los pedidos.
+
+Aquí está una manera de visualizar este tipo de relación:
+
+
+Si desea incluir los registros items_orders en el gráfico, puede verse así:
+
+
+Relaciones Auto-Referentes
+Esto se utiliza cuando una tabla necesita tener una relación consigo misma. Por ejemplo, supongamos que tiene un programa de referencia. Los clientes pueden referir a otros 
+clientes a su sitio web de compras. La tabla puede tener este aspecto:
+
+
+Los clientes 102 y 103 fueron referidos por el cliente 101.
+
+Esto en realidad también puede ser similar a "uno a muchos" relación ya que un cliente puede referirse a múltiples clientes. También se puede visualizar como una estructura de árbol:
+
+
+Un cliente puede referirse a cero, uno o varios clientes. Cada cliente puede ser referido por un solo cliente, o ninguno en absoluto.
+
+Si desea crear una relación de "muchos a muchos" de auto referenciamiento, necesitará una tabla adicional como la que acabamos de mencionar en la última sección.
+
+Claves foraneas
+Hasta ahora sólo hemos aprendido algunos de los conceptos. Ahora es el momento de darles vida usando SQL. Para esta parte, necesitamos entender lo que son las Claves foraneas.
+
+En los ejemplos de relación anteriores, siempre teníamos estos campos "**** _ id" que hacían referencia a una columna en otra tabla. En este ejemplo, la columna customer_id de
+la tabla Orders es una columna Foreign Key:
+
+
+Yo entendi esto :
+
+
+El modo de relacionar registros entre tablas es por referencias, para lo cual se usan los identificadores definidos como claves primarias y foráneas.Las claves foráneas de una 
+tabla permiten establecer relaciones con otras tablas, puesto que contienen valores que encontramos como clave primaria en la tabla con la que se relaciona. Una clave foránea 
+será simple o compuesta dependiendo de si lo es la clave primaria de la tabla a la que apunta o hace referencia. exieten 3 tipos de relaciones unoa a uno , uno amuchos , muchos a amuchos 
+
+
+
+
+*****************************************************************************************************************************************************************************************
+
