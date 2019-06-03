@@ -1,0 +1,14 @@
+
+Como uso los esquemas de bases de datos
+
+
+Para ayudar a los programadores cuyo software interactuará con la base. Al proceso de crear un esquema de base de datos se le llama 
+modelado de datos. Al seguir el enfoque de tres esquemas para el diseño de bases de datos, este paso seguiría la creación de un esquema 
+conceptual. Los esquemas conceptuales se enfocan en las necesidades informativas de una organización, más que en la estructura de una 
+base de datos.
+
+
+Yo entendi esto: Los esquemas de bases de datos sirven para trabajar en el desarollo en sistema de la base ded datos y conoser todos los elementos y las cionexiones 
+que tendra esto para guiarse de una mejor manera y prevenir y resolver errores ,
+
+

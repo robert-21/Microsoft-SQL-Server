@@ -1,0 +1,138 @@
+
+T-SQL 
+
+Transact-SQL es una extensión al SQL de Microsoft y Sybase. SQL, que frecuentemente se dice ser un Lenguaje de Búsquedas Estructurado, es un lenguaje de 
+cómputo estandarizado, desarrollado originalmente por IBM para realizar búsquedas, alterar y definir bases de datos relacionales utilizando sentencias 
+declarativas.
+
+
+Ejemplos:
+
+USE AdventureWorks2012;
+GO
+SELECT *
+FROM Production.Product
+ORDER BY Name ASC;
+
+
+USE AdventureWorks2012;
+GO
+SELECT p.*
+FROM Production.Product AS p
+ORDER BY Name ASC;
+GO
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT Name, ProductNumber, ListPrice AS Price
+FROM Production.Product 
+ORDER BY Name ASC;
+GO
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT Name, ProductNumber, ListPrice AS Price
+FROM Production.Product 
+WHERE ProductLine = 'R' 
+AND DaysToManufacture < 4
+ORDER BY Name ASC;
+GO
+
+
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT p.Name AS ProductName, 
+NonDiscountSales = (OrderQty * UnitPrice),
+Discounts = ((OrderQty * UnitPrice) * UnitPriceDiscount)
+FROM Production.Product AS p 
+INNER JOIN Sales.SalesOrderDetail AS sod
+ON p.ProductID = sod.ProductID 
+ORDER BY ProductName DESC;
+GO
+
+
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT 'Total income is', ((OrderQty * UnitPrice) * (1.0 - UnitPriceDiscount)), ' for ',
+p.Name AS ProductName 
+FROM Production.Product AS p 
+INNER JOIN Sales.SalesOrderDetail AS sod
+ON p.ProductID = sod.ProductID 
+ORDER BY ProductName ASC;
+GO
+
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT DISTINCT JobTitle
+FROM HumanResources.Employee
+ORDER BY JobTitle;
+GO
+
+
+
+
+USE tempdb;
+GO
+IF OBJECT_ID (N'#Bicycles',N'U') IS NOT NULL
+DROP TABLE #Bicycles;
+GO
+SELECT * 
+INTO #Bicycles
+FROM AdventureWorks2012.Production.Product
+WHERE ProductNumber LIKE 'BK%';
+GO
+
+
+
+
+
+SE AdventureWorks2012;
+GO
+IF OBJECT_ID('dbo.NewProducts', 'U') IS NOT NULL
+    DROP TABLE dbo.NewProducts;
+GO
+ALTER DATABASE AdventureWorks2012 SET RECOVERY BULK_LOGGED;
+GO
+
+SELECT * INTO dbo.NewProducts
+FROM Production.Product
+WHERE ListPrice > $25 
+AND ListPrice < $100;
+GO
+ALTER DATABASE AdventureWorks2012 SET RECOVERY FULL;
+GO
+
+
+
+
+
+USE AdventureWorks2012;
+GO
+SELECT DISTINCT Name
+FROM Production.Product AS p 
+WHERE EXISTS
+    (SELECT *
+     FROM Production.ProductModel AS pm 
+     WHERE p.ProductModelID = pm.ProductModelID
+           AND pm.Name LIKE 'Long-Sleeve Logo Jersey%');
+GO
+
+
+
+
+********************************************************************************************************************************************************
+
+

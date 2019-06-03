@@ -1,0 +1,20 @@
+Qué es un esquema de base de datos
+
+
+
+El término "esquema de base de datos" puede referirse a una representación visual de una base de datos, a un conjunto de reglas
+que rige una base de datos, o bien, a todo el conjunto de objetos que pertenecen a un usuario en particular. 
+
+Un esquema de base de datos representa la configuración lógica de todo o parte de una base de datos relacional. Puede existir
+de dos formas: como representación visual y como un conjunto de fórmulas conocidas como restricciones de integridad que
+controlan una base de datos. Estas fórmulas se expresan en un lenguaje de definición de datos, tal como SQL. Como parte deun
+diccionario de datos, un esquema de base de datos indica cómo las entidades que conforman la base de datos se relacionan
+entre sí, incluidas las tablas, las vistas, los procedimientos almacenados y mucho más.
+
+
+
+Yo entendi esto: Un  esquema de base de datos es la representacion visula del diagrama de conexiones y objetos que conforman la base de datos a si
+como tambien los fujos que siguien, 
+
+
+********************************************************************************************************************************************************
