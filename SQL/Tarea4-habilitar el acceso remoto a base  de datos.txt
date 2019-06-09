@@ -1,0 +1,179 @@
+Como habilitar el acceso remoto a mi  base de datos
+
+
+Usar SQL Server Management Studio
+Para configurar la opción de acceso remoto
+En el Explorador de objetos, haga clic con el botón derecho en un servidor y seleccione Propiedades.
+Haga clic en el nodo Conexiones .
+En Conexiones a servidores remotos, active o desactive la casilla Permitir conexiones remotas con este servidor .
+
+*******************************************************************************************************************************
+Habilitar conexiones remotas en SQL Server
+
+Habilitamos nuestras conexiones remotas en SQL Server,
+
+Por defecto SQL Server se instala con las conexiones remotas “deshabitadas”.
+
+Entonces si queremos conectar nuestras Aplicaciones, Servicios o cualquier fuente remota. Será necesario realizar algunas configuraciones para tener éxito. Para habilitar las conexiones 
+remotas tendremos que ejecutar la herramienta de configuración SQL Server Configuration Manager.
+
+Administrador SQL
+
+Cuando ejecutamos el programa expandimos “Configuracion de red de SQL Server”. Seleccionamos Protocolos de MSSQLSERVER (Este nombre dependerá de la configuración realizada al momento 
+de instalar SQL Server). Dentro de esa sección habilitaremos TCP / IP
+
+Opciones_red
+
+Debe de estar habilitado el protocolo TCP / IP , tambien habilitaremos el protocolo para que se ponga a la escucha en todas las interfaces de red del equipo (si no lo está):
+
+Propiedades_tcp
+
+Seleccionamos la pestaña Direcciones IP y comprobamos la configuración de modo que en las pestañas Direcciones IP tengas dentro de cada pestaña Puerto TCP: 1433
+ (Es el puerto predeterminado por SQL Server). y que los valores de IP coincidan con la IP del servidor.
+
+propiedades_tcp_2
+
+Al final de esta misma ventana vamos a configurar la opción IPALL/TCP PORT = 1433 y la opción IPALL/TCP Dynamic Port en blanco. Presionamos el botón Ok, reiniciamos el servicio 
+SQL Server para que reconozca nuestra nueva configuración. (Click derecho, Reiniciar).
+
+Importante tener habilitado SQL Server Browser para que nos podamos conectar a nuestra base de datos. Quedando nuestra configuración de esta forma :
+
+servicios_sql
+
+Teniendo estas configuraciones listas, es momento de iniciar nuestro Microsoft SQL Server Manager Studio (En el servidor). Iniciamos sesión con la cuenta predeterminada y 
+le damos click derecho al servidor SQL y nos vamos a la sección seguridad y habilitamos Modo autenticación de Windows y SQL Server.
+
+propiedades del servidor
+
+A continuación nos vamos a conexiones y habilitamos Permitir Conexiones remotas con este servidor.
+
+propiedades_servidor_2
+
+Es momento de conectarse a nuestra base de datos que tenemos en nuestro servidor desde otro computador.
+Iniciamos Microsoft SQL Manager Studio e iniciamos sesión (desde otro equipo).
+
+En la parte Nombre Servidor indicamos la IP que se del servidor y seleccionamos autenticación SQL Server. Introducimos user y pass creados anteriormente. Y listo! Nuestro 
+servidor de Base de datos ya es accesible desde la red.
+
+
+************************************************************************************************************************************************************************************
+
+Permisos
+
+Autorización y permisos en SQL Server
+
+Al crear objetos de base de datos, se deben conceder permisos de forma explícita para que los usuarios tengan acceso a ellos. Cada objeto susceptible de protegerse tiene 
+permisos que se pueden otorgar a una entidad de seguridad mediante instrucciones de permiso.
+
+
+Instrucciones de permiso
+En la siguiente tabla se describen las tres instrucciones de permiso de Transact-SQL.
+
+Instrucción de permiso	Descripción
+
+GRANT	Concede un permiso.
+REVOKE	Revoca un permiso. Este es el estado predeterminado de un objeto nuevo. Un permiso revocado a un usuario o rol se puede heredar de otros grupos o roles a los que está asignada 
+la entidad de seguridad.
+DENY	DENY revoca un permiso de manera que no pueda ser heredado. DENY tiene prioridad sobre todos los permisos, pero no se aplica a propietarios de objeto o miembros de sysadmin.
+Si deniega permisos a un objeto en el rol public, se los deniega igualmente a todos los usuarios y roles excepto a los propietarios del objeto y a los miembros de sysadmin.
+
+
+***********************************************************************************************************************************************************************************
+
+Usuarios
+
+
+Crear un usuario con SSMS
+En el Explorador de objetos, expanda la carpeta Bases de datos .
+
+Expanda la base de datos en la que se creará el nuevo usuario de la base de datos.
+
+Haga clic con el de seguridad de carpetas, seleccione Nuevo y seleccione Usuario ... .
+
+En el cuadro de diálogo Nuevo usuario de la base de datos , en la página General , seleccione uno de los siguientes tipos de usuarios de la lista Tipo de usuario :
+
+Usuario SQL con login
+
+Usuario SQL con contraseña
+
+Usuario SQL sin inicio de sesión
+
+Usuario mapeado a un certificado
+
+Usuario mapeado a una clave asimétrica
+
+Usuario de Windows
+
+Cuando selecciona una opción, las opciones restantes en el diálogo pueden cambiar. Algunas opciones solo se aplican a tipos específicos de usuarios de bases de datos. Algunas opciones 
+se pueden dejar en blanco y usarán un valor predeterminado.
+
+Nombre de usuario
+Introduzca un nombre para el nuevo usuario. Si ha elegido un usuario de Windows de la lista Tipo de usuario , también puede hacer clic en puntos suspensivos (...) para abrir el cuadro 
+de diálogo Seleccionar usuario o grupo .
+
+Nombre de
+
+inicio de sesión Introduzca el inicio de sesión del usuario. Alternativamente, haga clic en los puntos suspensivos (...) para abrir el cuadro de diálogo Seleccionar inicio de sesión .
+ El nombre de inicio de sesión está disponible si selecciona un usuario de SQL con inicio de sesión o un usuario de Windows en la lista Tipo de usuario .
+
+Contraseña y Confirmar contraseña
+Ingrese una contraseña para los usuarios que se autentiquen en la base de datos.
+
+Idioma predeterminado
+Introduzca el idioma predeterminado del usuario.
+
+Esquema predeterminado
+Ingrese el esquema que poseerá los objetos creados por este usuario. Alternativamente, haga clic en los puntos suspensivos (...) para abrir el cuadro de diálogo Seleccionar esquema . 
+El esquema predeterminado está disponible si selecciona un usuario de SQL con inicio de sesión , un usuario de SQL sin inicio de sesión o un usuario de Windows en la lista Tipo de 
+usuario .
+
+Nombre
+del certificado Introduzca el certificado que se utilizará para el usuario de la base de datos. Alternativamente, haga clic en los puntos suspensivos (...) para abrir el cuadro de
+ diálogo Seleccionar certificado . El nombre del certificado está disponible si selecciona Usuario asignado a un certificado de la lista Tipo de usuario .
+
+Nombre de clave asimétrica
+Introduzca la clave que se utilizará para el usuario de la base de datos. Alternativamente, haga clic en los puntos suspensivos (...) para abrir el cuadro de diálogo Seleccionar 
+clave asimétrica . El nombre de la clave asimétrica está disponible si selecciona Usuario asignado a una clave asimétrica en la lista Tipo de usuario .
+
+
+
+**************************************************************************************************************************************************************************
+
+SQL Server puede usar los mecanismos de directiva de contraseñas de Windows. La directiva de contraseñas se aplica a un inicio de sesión que usa la autenticación de SQL Server y a un usuario con contraseña de una base de datos independiente.
+SQL Server puede aplicar las mismas directivas de complejidad y expiración que se usan en Windows a las contraseñas que se usan en SQL Server. Esta funcionalidad depende de la API NetValidatePasswordPolicy
+
+Complejidad de las contraseñas
+
+Las directivas de complejidad de contraseñas están diseñadas para impedir ataques por fuerza bruta mediante el aumento del número de contraseñas posibles. Cuando se aplica la directiva 
+de complejidad de contraseñas, se exige que las nuevas contraseñas cumplan las siguientes directrices:
+La contraseña no debe contener el nombre de la cuenta del usuario.
+La contraseña debe tener una longitud de ocho caracteres como mínimo.
+La contraseña debe contener caracteres de tres de las siguientes categorías:
+Letras en mayúsculas del alfabeto Latín (de la A a la Z)
+Letras en minúsculas del alfabeto Latín (de la "a" a la "z")
+Dígitos en base 10 (del 0 al 9)
+Caracteres que no sean alfanuméricos, como signo de admiración (!), signo de moneda ($), signo de almohadilla (#) o porcentaje (%).
+Las contraseñas pueden tener hasta 128 caracteres. Use contraseñas lo más largas y complejas posible.
+Expiración de las contraseñas
+Las directivas de expiración de contraseñas se utilizan para administrar la duración de una contraseña. Cuando SQL Server aplica la directiva de expiración de contraseñas, 
+se recuerda a los usuarios que cambien las contraseñas antiguas, y las cuentas con contraseñas que han expirado se deshabilitan.
+
+****************************************************************************************************************************************************************************
+
+
+Para configurar el motor de la base de datos de SQL Server para escuchar en otro puerto TCP
+
+En Administrador de configuración de SQL Server, expanda Configuración de red de SQL Server y, después, haga clic en Protocolos de <nombre_instancia>.
+Expanda Protocolos de <nombre_instancia> y, después, haga clic en TCP/IP.
+En el panel derecho, haga clic con el botón derecho en cada dirección IP deshabilitada que quiera habilitar y, después, haga clic en Habilitar.
+Haga clic con el botón derecho en IPAlly, después, haga clic en Propiedades.
+En el cuadro Puerto TCP , escriba los puertos en los que desee que escuche el Motor de base de datos , separados por comas. En nuestro ejemplo, si aparece el puerto predeterminado 1433,
+ escriba ,1500 para que en el cuadro se lea 1433,1500y, después, haga clic en Aceptar.
+ en el panel de la consola, haga clic con el botón derecho en TCP/IP, haga clic en Propiedadesy, en el cuadro Escuchar todo , seleccione No.
+En el panel izquierdo, haga clic en Servicios de SQL Server.
+En el panel derecho, haga clic con el botón derecho en SQL Server <nombre_instancia> y, después, haga clic en Reiniciar.
+Cuando se reinicie el Motor de base de datos, el registro de errores mostrará los puertos en los que escucha SQL Server.
+
+
+
+
